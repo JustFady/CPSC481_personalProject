@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import LawCard from "./LawCard.jsx";
+import { useAnimatedNumber } from "../hooks/useAnimatedNumber.js";
 
 function likelihoodToPercent(x) {
   return `${(Number(x ?? 0) * 100).toFixed(1)}%`;
@@ -13,11 +14,36 @@ function strictnessStyles(strictness) {
   return { label: "Permissive", cls: "bg-rose-500/15 text-rose-200 border-rose-500/20", dot: "bg-rose-400" };
 }
 
-function StatCard({ label, value }) {
+/**
+ * Severity color for numeric values.
+ * severity: "danger" = red glow, "warn" = amber, "safe" = green, "neutral" = default
+ */
+function getSeverityClasses(severity) {
+  if (severity === "danger") return "border-rose-500/20 bg-rose-500/[0.06]";
+  if (severity === "warn") return "border-amber-500/20 bg-amber-500/[0.06]";
+  if (severity === "safe") return "border-emerald-500/20 bg-emerald-500/[0.06]";
+  return "border-white/[0.06] bg-white/[0.03]";
+}
+
+function getSeverityTextColor(severity) {
+  if (severity === "danger") return "text-rose-300";
+  if (severity === "warn") return "text-amber-300";
+  if (severity === "safe") return "text-emerald-300";
+  return "text-slate-100";
+}
+
+function StatCard({ label, value, severity = "neutral", numericValue }) {
+  const animated = useAnimatedNumber(numericValue ?? 0, 700, 1);
+  const showAnimated = numericValue !== undefined && numericValue !== null;
+
   return (
-    <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-3 py-2.5 group hover:bg-white/[0.05] transition-colors duration-200">
+    <div className={`rounded-xl px-3 py-2.5 border group hover:brightness-125 transition-all duration-300 ${getSeverityClasses(severity)}`}>
       <div className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">{label}</div>
-      <div className="text-sm font-semibold text-slate-100 mt-1">{value}</div>
+      <div className={`text-sm font-bold mt-1 tabular-nums ${getSeverityTextColor(severity)}`}>
+        {showAnimated ? animated : value}
+        {showAnimated && typeof value === "string" && value.includes("/") && <span className="text-xs font-normal text-slate-500"> / 100k</span>}
+        {showAnimated && typeof value === "string" && value.includes("%") && <span className="text-xs font-normal text-slate-500">%</span>}
+      </div>
     </div>
   );
 }
@@ -47,18 +73,23 @@ export default function CountryPanel({
   const subregionLabel = hasStates ? "States" : "Cities";
   const subregionList = hasStates ? statesForCountry : citiesForCountry;
 
+  const homVal = getVal(country.homicideRatePer100k, activeYear);
+  const fireVal = getVal(country.firearmHomicideRate, activeYear);
+  const crimeVal = getVal(country.organizedCrimeIndex, activeYear);
+  const gangVal = country.gangRelatedGunDeathsPercent ?? 0;
+
   const stats = useMemo(
     () => [
-      { label: "Homicide rate", value: `${getVal(country.homicideRatePer100k, activeYear)} / 100k` },
-      { label: "Firearm homicide", value: `${getVal(country.firearmHomicideRate, activeYear)} / 100k` },
-      { label: "Crime index", value: `${getVal(country.organizedCrimeIndex, activeYear)}` },
+      { label: "Homicide rate", value: `${homVal} / 100k`, numericValue: homVal, severity: homVal > 5 ? "danger" : homVal > 2 ? "warn" : "safe" },
+      { label: "Firearm homicide", value: `${fireVal} / 100k`, numericValue: fireVal, severity: fireVal > 3 ? "danger" : fireVal > 1 ? "warn" : "safe" },
+      { label: "Crime index", value: `${crimeVal}`, numericValue: crimeVal, severity: crimeVal > 5 ? "danger" : crimeVal > 3 ? "warn" : "safe" },
       { label: "Violence type", value: country.primaryViolenceType },
-      { label: "Under 25", value: `${country.underAge25Percent.toFixed(0)}%` },
+      { label: "Under 25", value: `${country.underAge25Percent.toFixed(0)}%`, numericValue: country.underAge25Percent, severity: country.underAge25Percent > 50 ? "danger" : country.underAge25Percent > 30 ? "warn" : "safe" },
       { label: "Death risk (owner)", value: likelihoodToPercent(country.likelihoodDeathIfOwner) },
       { label: "Incarceration risk", value: likelihoodToPercent(country.likelihoodIncarcerationIfOwner) },
-      { label: "Gang-related", value: `${country.gangRelatedGunDeathsPercent ?? 0}%` },
+      { label: "Gang-related", value: `${gangVal}%`, numericValue: gangVal, severity: gangVal > 40 ? "danger" : gangVal > 15 ? "warn" : "safe" },
     ],
-    [country, activeYear]
+    [country, activeYear, homVal, fireVal, crimeVal, gangVal]
   );
 
   const chartData = useMemo(
@@ -97,7 +128,7 @@ export default function CountryPanel({
         {/* Stats grid */}
         <div className="grid grid-cols-2 gap-2">
           {stats.map((s) => (
-            <StatCard key={s.label} label={s.label} value={s.value} />
+            <StatCard key={s.label} label={s.label} value={s.value} severity={s.severity} numericValue={s.numericValue} />
           ))}
         </div>
 

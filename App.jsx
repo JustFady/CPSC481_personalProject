@@ -9,6 +9,7 @@ import ChartPanel from "./components/ChartPanel.jsx";
 import LoadingScreen from "./components/LoadingScreen.jsx";
 import StatePanel from "./components/StatePanel.jsx";
 import TimeScrubber from "./components/TimeScrubber.jsx";
+import Breadcrumb from "./components/Breadcrumb.jsx";
 
 import countries from "./data/countries.json";
 import cities from "./data/cities.json";
@@ -270,7 +271,7 @@ export default function App() {
 
       {/* ── RIGHT: Unified Sidebar ──────────────────────── */}
       {sidebarOpen && (
-        <div className="w-[390px] shrink-0 h-full flex flex-col bg-[rgba(6,10,20,0.95)] border-l border-white/[0.06] animate-slide-in-right">
+        <div className="w-[390px] shrink-0 h-full flex flex-col bg-[rgba(6,10,20,0.95)] border-l border-white/[0.06] animate-slide-in-right sidebar-gradient-border">
           {/* Tab Bar */}
           <div className="flex shrink-0 border-b border-white/[0.06]">
             <TabButton active={activeTab === "info"} icon={infoIcon} label="Info" onClick={() => setActiveTab("info")} />
@@ -290,6 +291,13 @@ export default function App() {
           <div className="flex-1 overflow-y-auto min-h-0">
             {activeTab === "info" && (
               <>
+                <Breadcrumb
+                  country={selectedCountry}
+                  state={selectedState}
+                  city={selectedCity}
+                  onSelectCountry={(id) => { setSelectedStateId(null); setSelectedCityId(null); setSelectedCountryId(id); }}
+                  onSelectState={(id) => { setSelectedCityId(null); setSelectedStateId(id); }}
+                />
                 {selectedCity ? (
                   <CityPanel
                     city={selectedCity}

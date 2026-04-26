@@ -184,3 +184,38 @@ select option {
 /* ── Toast ────────────────────────────────────────────── */
 .toast-enter { animation: slideUp 0.35s ease-out forwards; }
 .toast-exit { animation: fadeOut 0.25s ease-out forwards; }
+
+/* ── Gradient accent border (animated) ───────────────── */
+.sidebar-gradient-border {
+  position: relative;
+}
+.sidebar-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    #3b82f6 0%,
+    #8b5cf6 30%,
+    #ec4899 60%,
+    #3b82f6 100%
+  );
+  background-size: 100% 200%;
+  animation: gradientShift 4s ease infinite;
+  z-index: 10;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+}
+
+/* ── Pulse animation for city markers ────────────────── */
+@keyframes cityPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+

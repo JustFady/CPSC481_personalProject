@@ -474,11 +474,20 @@ export default function Globe({
 
     globeRef.current
       .pointsData(points)
-      .pointRadius((d) => (selectedCityId === d.id ? 0.22 : 0.13))
-      .pointColor((d) =>
-        selectedCityId === d.id ? "rgba(59,130,246,1)" : "rgba(139,92,246,0.9)"
-      )
-      .pointAltitude((d) => (selectedCityId === d.id ? 0.02 : 0.0));
+      .pointRadius((d) => {
+        if (selectedCityId === d.id) return 0.35;
+        // Size proportional to homicide rate
+        const rate = d.homicideRatePer100k ?? 5;
+        return Math.min(0.28, Math.max(0.1, rate / 40));
+      })
+      .pointColor((d) => {
+        if (selectedCityId === d.id) return "rgba(59,130,246,1)";
+        const rate = d.homicideRatePer100k ?? 5;
+        if (rate > 10) return "rgba(244,63,94,0.9)";    // red = dangerous
+        if (rate > 5) return "rgba(245,158,11,0.9)";     // amber = moderate
+        return "rgba(16,185,129,0.85)";                   // green = safe
+      })
+      .pointAltitude((d) => (selectedCityId === d.id ? 0.025 : 0.005));
   }, [cities, citiesVisible, selectedCountryId, selectedCityId]);
 
   // ── Fly to selected country / state / city ─────────────────────
