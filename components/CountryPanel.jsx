@@ -37,7 +37,7 @@ function StatCard({ label, value, severity = "neutral", numericValue }) {
   const showAnimated = numericValue !== undefined && numericValue !== null;
 
   return (
-    <div className={`rounded-xl px-3 py-2.5 border group hover:brightness-125 transition-all duration-300 ${getSeverityClasses(severity)}`}>
+    <div className={`rounded-xl px-3 py-2.5 border group hover:brightness-125 card-hover-lift transition-all duration-300 ${getSeverityClasses(severity)}`}>
       <div className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">{label}</div>
       <div className={`text-sm font-bold mt-1 tabular-nums ${getSeverityTextColor(severity)}`}>
         {showAnimated ? animated : value}
@@ -158,8 +158,8 @@ export default function CountryPanel({
                   labelStyle={{ color: "#e2e8f0", fontWeight: 600 }}
                   itemStyle={{ color: "#94a3b8" }}
                 />
-                <Bar dataKey="country" name="Country" fill="#3b82f6" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="global" name="Global" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="country" name="Country" fill="#3b82f6" radius={[4, 4, 0, 0]} animationDuration={1500} />
+                <Bar dataKey="global" name="Global" fill="#8b5cf6" radius={[4, 4, 0, 0]} animationDuration={1800} />
               </BarChart>
             </ResponsiveContainer>
           </div>

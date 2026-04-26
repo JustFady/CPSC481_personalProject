@@ -7,7 +7,7 @@ function SeverityStatSmall({ label, numericValue, suffix, severity }) {
   const textCls = severity === "danger" ? "text-rose-300" : severity === "warn" ? "text-amber-300" : severity === "safe" ? "text-emerald-300" : "text-slate-100";
 
   return (
-    <div className={`rounded-xl px-3 py-2.5 border transition-all duration-300 hover:brightness-125 ${borderCls}`}>
+    <div className={`rounded-xl px-3 py-2.5 border transition-all duration-300 hover:brightness-125 card-hover-lift ${borderCls}`}>
       <div className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">{label}</div>
       <div className={`text-sm font-bold mt-1 tabular-nums ${textCls}`}>
         {animated}

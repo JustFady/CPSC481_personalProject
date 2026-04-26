@@ -153,7 +153,7 @@ export default function ChartPanel({ countries, cities, onClose, onPin, inline }
               <XAxis dataKey="name" tick={{ fontSize: 9, fill: "#64748b" }} interval={0} angle={-45} textAnchor="end" height={80} axisLine={false} tickLine={false} />
               <YAxis tick={{ fontSize: 9, fill: "#475569" }} axisLine={false} tickLine={false} width={35} />
               <Tooltip content={<CustomTooltip />} />
-              <Bar dataKey="metric" fill="#3b82f6" radius={[3, 3, 0, 0]} />
+              <Bar dataKey="metric" fill="#3b82f6" radius={[3, 3, 0, 0]} animationDuration={1500} animationBegin={300} />
             </BarChart>
           </ResponsiveContainer>
         </div>

@@ -21,7 +21,7 @@ function SeverityStat({ label, value, severity, gradientFrom }) {
   const borderCls = severity === "danger" ? "border-rose-500/20" : severity === "warn" ? "border-amber-500/20" : severity === "safe" ? "border-emerald-500/20" : "border-white/5";
   const textCls = severity === "danger" ? "text-rose-300" : severity === "warn" ? "text-amber-300" : severity === "safe" ? "text-emerald-300" : "text-white";
   return (
-    <div className={`rounded-xl p-4 border relative overflow-hidden group transition-all duration-300 hover:brightness-125 ${borderCls}`} style={{background: 'rgba(15,23,42,0.5)'}}>
+    <div className={`rounded-xl p-4 border relative overflow-hidden group transition-all duration-300 hover:brightness-125 card-hover-lift ${borderCls}`} style={{background: 'rgba(15,23,42,0.5)'}}>
       <div className={`absolute inset-0 bg-gradient-to-br ${gradientFrom} to-transparent opacity-0 group-hover:opacity-100 transition-opacity`} />
       <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1 relative z-10">{label}</p>
       <div className="flex items-baseline gap-1 relative z-10">
