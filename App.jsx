@@ -10,6 +10,7 @@ import ChartPanel from "./components/ChartPanel.jsx";
 import LoadingScreen from "./components/LoadingScreen.jsx";
 import TopNav from "./components/TopNav.jsx";
 import StatePanel from "./components/StatePanel.jsx";
+import TimeScrubber from "./components/TimeScrubber.jsx";
 
 import countries from "./data/countries.json";
 import cities from "./data/cities.json";
@@ -19,8 +20,6 @@ import usStatesData from "./data/us_states.json";
 function clampPins(items, max = 4) {
   return items.length <= max ? items : items.slice(0, max);
 }
-
-// Replaced with narrative lenses inline
 
 /* ── Toast component ──────────────────────────────────── */
 function Toast({ message, onDone }) {
@@ -50,33 +49,29 @@ export default function App() {
   const [selectedStateId, setSelectedStateId] = useState(null);
   const [selectedCityId, setSelectedCityId] = useState(null);
   
-  // New Interactions
+  // Interactions
   const [dataLens, setDataLens] = useState("none");
-  const [isTouring, setIsTouring] = useState(false);
+  const [activeYear, setActiveYear] = useState(2026);
 
   // UI state
   const [sidebarOpen, setSidebarOpen] = useState(true);
-
   const [pinned, setPinned] = useState([]);
   const [compareOpen, setCompareOpen] = useState(false);
-
   const [scenarioOpen, setScenarioOpen] = useState(false);
-  const [scenarioFilters, setScenarioFilters] = useState({
-    gangRelatedOver60: false,
-    under25Predominant: false,
-    deathIfOwnerOver5: false,
-    permissiveOnly: false,
-    organizedCrimeOver6: false,
-  });
-
+  const [activeScenario, setActiveScenario] = useState(null);
   const [chartsOpen, setChartsOpen] = useState(false);
   const [toast, setToast] = useState(null);
 
   const scenarioCountryIds = useMemo(() => {
-    const anyActive = Object.values(scenarioFilters).some(Boolean);
-    if (!anyActive) return null;
-    return deriveScenarioMatches(countries, scenarioFilters);
-  }, [scenarioFilters]);
+    if (!activeScenario) return null;
+    return countries.filter(c => {
+      if (activeScenario === 'gang-crisis') return (c.gangRelatedGunDeathsPercent >= 50 || c.organizedCrimeIndex >= 6.5);
+      if (activeScenario === 'permissive-risk') return (c.lawStrictness || "").toLowerCase() === 'permissive' && c.homicideRatePer100k > 5;
+      if (activeScenario === 'safe-havens') return (c.lawStrictness || "").toLowerCase() === 'strict' && c.homicideRatePer100k < 2;
+      if (activeScenario === 'youth-risk') return c.underAge25Percent >= 50;
+      return false;
+    }).map(c => c.id);
+  }, [activeScenario, countries]);
 
   const selectedCountry = useMemo(
     () => countries.find((c) => c.id === selectedCountryId) ?? countries[0],
@@ -93,11 +88,23 @@ export default function App() {
     return cities.find((ct) => ct.id === selectedCityId) ?? null;
   }, [selectedCityId]);
 
-  const citiesForSelectedCountry = useMemo(() => {
-    if (selectedStateId) return []; // no specific cities for states in db yet, maybe filter later
+  // Cities for the current context: if a state is selected, show cities for that state
+  // Otherwise show cities for the selected country
+  const citiesForContext = useMemo(() => {
+    if (selectedStateId) {
+      return cities.filter((ct) => ct.stateId === selectedStateId);
+    }
     if (!selectedCountryId) return [];
+    // For USA at country level, don't show cities (show states instead)
+    if (selectedCountryId === "USA") return [];
     return cities.filter((ct) => ct.countryId === selectedCountryId);
   }, [selectedCountryId, selectedStateId]);
+
+  // US states for when USA is selected at country level
+  const statesForCountry = useMemo(() => {
+    if (selectedCountryId !== "USA") return [];
+    return usStatesData;
+  }, [selectedCountryId]);
 
   const globalAvgKeyMetrics = useMemo(() => {
     const avg = (key) => countries.reduce((sum, c) => sum + (c[key] ?? 0), 0) / Math.max(1, countries.length);
@@ -122,18 +129,38 @@ export default function App() {
       setSelectedCityId(null);
       setSelectedStateId(null);
       setSelectedCountryId(loc.countryId);
+    } else if (loc.type === "state") {
+      setSelectedCityId(null);
+      setSelectedCountryId("USA");
+      setSelectedStateId(loc.stateId);
     } else {
       setSelectedCityId(loc.cityId);
-      setSelectedStateId(null);
       setSelectedCountryId(loc.countryId);
     }
+  }, []);
+
+  const handleSelectState = useCallback((stateId) => {
+    setSelectedCountryId("USA");
+    setSelectedStateId(stateId);
+    setSelectedCityId(null);
+    setSidebarOpen(true);
   }, []);
 
   const handleViewCity = useCallback((cityId) => {
     const ct = cities.find((x) => x.id === cityId);
     if (!ct) return;
     setSelectedCountryId(ct.countryId);
+    if (ct.stateId) setSelectedStateId(ct.stateId);
     setSelectedCityId(cityId);
+  }, []);
+
+  const handleBackToCountry = useCallback(() => {
+    setSelectedStateId(null);
+    setSelectedCityId(null);
+  }, []);
+
+  const handleBackToState = useCallback(() => {
+    setSelectedCityId(null);
   }, []);
 
   const pinToCompare = useCallback((pin) => {
@@ -152,44 +179,6 @@ export default function App() {
   const handleCountryNotFound = useCallback((name) => {
     setToast(`No detailed data available for ${name}`);
   }, []);
-
-  // Touring logic
-  useEffect(() => {
-    if (!isTouring) return;
-    let step = 0;
-    const tourSequence = [
-      { type: "country", id: "JPN", dur: 6000, msg: "Japan enforces some of the strictest gun laws globally, maintaining an incredibly low homicide rate." },
-      { type: "country", id: "USA", dur: 4500, msg: "The United States represents a complex outlier, balancing widespread firearm ownership with significant violence metrics." },
-      { type: "state", id: "USA-TEXAS", dur: 5500, msg: "Within the US, Texas employs a highly permissive legislative approach to firearm ownership." },
-      { type: "country", id: "BRA", dur: 5500, msg: "Brazil faces severe organized crime challenges, resulting in one of the highest absolute gun violence rates." },
-      { type: "country", id: "GBR", dur: 5000, msg: "The UK nearly eliminated gun violence following comprehensive bans introduced in the late 1990s." }
-    ];
-    let tm;
-    const next = () => {
-      if (!isTouring) return;
-      if (step >= tourSequence.length) { 
-        setIsTouring(false); 
-        setToast("Guided tour complete.");
-        return; 
-      }
-      const s = tourSequence[step];
-      if (s.type === 'country') {
-        setSelectedCountryId(s.id);
-        setSelectedStateId(null);
-        setSelectedCityId(null);
-      } else if (s.type === 'state') {
-        setSelectedCountryId('USA');
-        setSelectedStateId(s.id);
-        setSelectedCityId(null);
-      }
-      setSidebarOpen(true);
-      setToast(s.msg);
-      step++;
-      tm = setTimeout(next, s.dur);
-    };
-    next();
-    return () => clearTimeout(tm);
-  }, [isTouring]);
 
   return (
     <div className="relative h-full overflow-hidden">
@@ -212,17 +201,13 @@ export default function App() {
           scenarioCountryIds={scenarioCountryIds}
           citiesVisible={!!selectedCountryId}
           dataLens={dataLens}
+          activeYear={activeYear}
           onSelectCountry={(countryId) => handleSelectLocation({ type: "country", countryId })}
-          onSelectState={(stateId) => {
-            setSelectedCountryId('USA');
-            setSelectedStateId(stateId);
-            setSelectedCityId(null);
-            setSidebarOpen(true);
-          }}
+          onSelectState={handleSelectState}
           onSelectCity={(cityId) => {
             const ct = cities.find((x) => x.id === cityId);
             if (!ct) return;
-            handleSelectLocation({ type: "city", countryId: ct.countryId, cityId });
+            handleViewCity(cityId);
           }}
           onGlobeReady={handleGlobeReady}
           onCountryNotFound={handleCountryNotFound}
@@ -237,8 +222,6 @@ export default function App() {
         onToggleScenarios={() => setScenarioOpen(!scenarioOpen)}
         dataLens={dataLens}
         onSetDataLens={setDataLens}
-        isTouring={isTouring}
-        onToggleTour={() => setIsTouring(!isTouring)}
       >
         <SearchBar countries={countries} cities={cities} onSelectLocation={handleSelectLocation} />
       </TopNav>
@@ -254,7 +237,9 @@ export default function App() {
             <CityPanel
               city={selectedCity}
               country={selectedCountry}
-              onDismiss={() => setSelectedCityId(null)}
+              state={selectedState}
+              activeYear={activeYear}
+              onDismiss={handleBackToState}
               onPin={() =>
                 pinToCompare({
                   type: "city",
@@ -267,7 +252,9 @@ export default function App() {
           ) : selectedStateId ? (
             <StatePanel
               stateData={selectedState}
-              citiesForState={citiesForSelectedCountry}
+              citiesForState={citiesForContext}
+              activeYear={activeYear}
+              onBack={handleBackToCountry}
               onPin={() =>
                 pinToCompare({
                   type: "state",
@@ -281,8 +268,10 @@ export default function App() {
           ) : (
             <CountryPanel
               country={selectedCountry}
-              citiesForCountry={citiesForSelectedCountry}
+              citiesForCountry={citiesForContext}
+              statesForCountry={statesForCountry}
               globalAvgKeyMetrics={globalAvgKeyMetrics}
+              activeYear={activeYear}
               onPin={() =>
                 pinToCompare({
                   type: "country",
@@ -291,6 +280,7 @@ export default function App() {
                 })
               }
               onViewCity={handleViewCity}
+              onSelectState={handleSelectState}
               onClosePanel={() => setSidebarOpen(false)}
             />
           )}
@@ -308,6 +298,11 @@ export default function App() {
           </svg>
           Panel
         </button>
+      )}
+
+      {/* ── z-25: TimeScrubber ─────────────────────────── */}
+      {!chartsOpen && !scenarioOpen && (
+        <TimeScrubber activeYear={activeYear} onSetYear={setActiveYear} />
       )}
 
       {/* ── z-30: CompareBar ───────────────────────────── */}
@@ -336,7 +331,6 @@ export default function App() {
           />
         </div>
       )}
-
 
       {/* ── z-50: Modals ───────────────────────────────── */}
       {compareOpen && (

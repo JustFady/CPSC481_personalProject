@@ -1,15 +1,15 @@
 import React from "react";
 
 export default function TimeScrubber({ activeYear, onSetYear }) {
-  const minYear = 2010;
-  const maxYear = 2024;
+  const minYear = 2000;
+  const maxYear = 2026;
   
   return (
-    <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-      <div className="pointer-events-auto glass-strong rounded-2xl px-6 py-4 flex flex-col items-center gap-4 border-accent/20 w-[400px]">
-        <div className="w-full flex justify-between items-end mb-1">
-          <span className="text-xs font-bold text-slate-400 tracking-widest uppercase">Historical Playback</span>
-          <span className="text-2xl font-black text-accent bg-accent/10 px-3 py-0.5 rounded-lg border border-accent/20 shadow-glow">{activeYear}</span>
+    <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+      <div className="pointer-events-auto glass-strong rounded-2xl px-6 py-3 flex flex-col items-center gap-3 border-accent/20 w-[360px]">
+        <div className="w-full flex justify-between items-end">
+          <span className="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Historical Playback</span>
+          <span className="text-xl font-black text-accent bg-accent/10 px-3 py-0.5 rounded-lg border border-accent/20 shadow-glow">{activeYear}</span>
         </div>
         
         <div className="w-full flex items-center gap-4">

@@ -5,7 +5,6 @@ export default function TopNav({
   chartsOpen, onToggleCharts, 
   scenarioOpen, onToggleScenarios,
   dataLens, onSetDataLens,
-  isTouring, onToggleTour
 }) {
   return (
     <div className="absolute top-0 left-0 right-0 z-10 px-4 py-3 pointer-events-none">
@@ -14,8 +13,8 @@ export default function TopNav({
         {/* Left: Branding & Lenses */}
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-3">
-            <div className={`w-10 h-10 rounded-xl glass-strong flex items-center justify-center shadow-glow border transition-colors ${isTouring ? 'border-purple-500' : 'border-accent/20'}`}>
-              <svg className={`w-5 h-5 ${isTouring ? 'text-purple-400' : 'text-accent'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <div className="w-10 h-10 rounded-xl glass-strong flex items-center justify-center shadow-glow border border-accent/20">
+              <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -40,18 +39,6 @@ export default function TopNav({
 
         {/* Right: Tools */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={onToggleTour}
-            className={`glass rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 flex items-center gap-2 hover:shadow-glow ${
-              isTouring ? "bg-purple-500/15 text-purple-400 border-purple-500/30" : "text-slate-300 hover:text-white"
-            }`}
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="hidden md:inline">{isTouring ? "Stop Tour" : "Auto Tour"}</span>
-          </button>
           <button
             onClick={onToggleCharts}
             className={`glass rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 flex items-center gap-2 hover:shadow-glow ${

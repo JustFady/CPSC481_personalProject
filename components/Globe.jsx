@@ -38,15 +38,18 @@ const nameAliases = {
 };
 
 /* ── tooltip HTML builder ─────────────────────────────── */
-function buildTooltipHTML(country) {
-  if (!country) return "";
+function buildTooltipHTML(data, isState = false) {
+  if (!data) return "";
 
   const strictColor =
-    country.lawStrictness === "Strict"
+    data.lawStrictness === "Strict"
       ? "#10b981"
-      : country.lawStrictness === "Moderate"
+      : data.lawStrictness === "Moderate"
       ? "#f59e0b"
       : "#f43f5e";
+
+  const flag = isState ? "🇺🇸" : (data.flagEmoji || "🌍");
+  const subtitle = isState ? "United States" : (data.region || "");
 
   return `
     <div style="
@@ -62,28 +65,28 @@ function buildTooltipHTML(country) {
       box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.15);
     ">
       <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-        <span style="font-size:20px;">${country.flagEmoji}</span>
+        <span style="font-size:20px;">${flag}</span>
         <div>
-          <div style="font-size:14px; font-weight:600; color:#f1f5f9;">${country.name}</div>
-          <div style="font-size:11px; color:#94a3b8;">${country.region}</div>
+          <div style="font-size:14px; font-weight:600; color:#f1f5f9;">${data.name}</div>
+          <div style="font-size:11px; color:#94a3b8;">${subtitle}</div>
         </div>
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
         <div style="background:rgba(255,255,255,0.05); border-radius:8px; padding:6px 8px;">
           <div style="font-size:10px; color:#64748b;">Homicide</div>
-          <div style="font-size:13px; font-weight:600; color:#f1f5f9;">${country.homicideRatePer100k}/100k</div>
+          <div style="font-size:13px; font-weight:600; color:#f1f5f9;">${data.homicideRatePer100k}/100k</div>
         </div>
         <div style="background:rgba(255,255,255,0.05); border-radius:8px; padding:6px 8px;">
           <div style="font-size:10px; color:#64748b;">Firearm</div>
-          <div style="font-size:13px; font-weight:600; color:#f1f5f9;">${country.firearmHomicideRate}/100k</div>
+          <div style="font-size:13px; font-weight:600; color:#f1f5f9;">${data.firearmHomicideRate}/100k</div>
         </div>
         <div style="background:rgba(255,255,255,0.05); border-radius:8px; padding:6px 8px;">
           <div style="font-size:10px; color:#64748b;">Crime Index</div>
-          <div style="font-size:13px; font-weight:600; color:#f1f5f9;">${country.organizedCrimeIndex}</div>
+          <div style="font-size:13px; font-weight:600; color:#f1f5f9;">${data.organizedCrimeIndex}</div>
         </div>
         <div style="background:rgba(255,255,255,0.05); border-radius:8px; padding:6px 8px;">
           <div style="font-size:10px; color:#64748b;">Gun Law</div>
-          <div style="font-size:13px; font-weight:600; color:${strictColor};">${country.lawStrictness}</div>
+          <div style="font-size:13px; font-weight:600; color:${strictColor};">${data.lawStrictness}</div>
         </div>
       </div>
       <div style="font-size:10px; color:#475569; margin-top:8px; text-align:center;">Click to view details</div>
@@ -349,7 +352,7 @@ export default function Globe({
 
           if (id) {
             const c = isUSState ? stateById.get(id) : countryById.get(id);
-            return c ? buildTooltipHTML(c) : buildUnknownTooltipHTML(fName);
+            return c ? buildTooltipHTML(c, isUSState) : buildUnknownTooltipHTML(fName);
           }
           return buildUnknownTooltipHTML(fName);
         })
@@ -478,15 +481,25 @@ export default function Globe({
       .pointAltitude((d) => (selectedCityId === d.id ? 0.02 : 0.0));
   }, [cities, citiesVisible, selectedCountryId, selectedCityId]);
 
-  // ── Fly to selected country / city ─────────────────────
+  // ── Fly to selected country / state / city ─────────────────────
   useEffect(() => {
     if (!globeRef.current) return;
     const duration = 1000;
     if (selectedCity) {
+      // Zoom close to city
       globeRef.current.pointOfView(
-        { lat: selectedCity.lat, lng: selectedCity.lng, altitude: 1.3 },
+        { lat: selectedCity.lat, lng: selectedCity.lng, altitude: 0.5 },
         duration
       );
+    } else if (selectedStateId) {
+      // Zoom to state
+      const st = (usStates || []).find(s => s.id === selectedStateId);
+      if (st && st.lat && st.lng) {
+        globeRef.current.pointOfView(
+          { lat: st.lat, lng: st.lng, altitude: 1.0 },
+          duration
+        );
+      }
     } else {
       const c = countries.find((x) => x.id === selectedCountryId) ?? countries[0];
       globeRef.current.pointOfView(
@@ -494,7 +507,7 @@ export default function Globe({
         duration
       );
     }
-  }, [selectedCity, selectedCountryId, countries]);
+  }, [selectedCity, selectedStateId, selectedCountryId, countries, usStates]);
 
   return <div ref={containerRef} className="w-full h-full" />;
 }

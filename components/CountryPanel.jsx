@@ -13,7 +13,7 @@ function strictnessStyles(strictness) {
   return { label: "Permissive", cls: "bg-rose-500/15 text-rose-200 border-rose-500/20", dot: "bg-rose-400" };
 }
 
-function StatCard({ label, value, icon }) {
+function StatCard({ label, value }) {
   return (
     <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-3 py-2.5 group hover:bg-white/[0.05] transition-colors duration-200">
       <div className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">{label}</div>
@@ -22,29 +22,43 @@ function StatCard({ label, value, icon }) {
   );
 }
 
+// Historical multiplier for timeline
+function getVal(base, activeYear) {
+  if (!activeYear || activeYear === 2024 || typeof base !== 'number') return base;
+  const diff = 2024 - activeYear;
+  return parseFloat((base * (1 + diff * 0.015)).toFixed(1));
+}
+
 export default function CountryPanel({
   country,
   citiesForCountry,
+  statesForCountry = [],
   globalAvgKeyMetrics,
+  activeYear,
   onPin,
   onViewCity,
+  onSelectState,
   onClosePanel,
 }) {
   const strict = strictnessStyles(country.lawStrictness);
-  const [showCities, setShowCities] = useState(false);
+  const [showSubregions, setShowSubregions] = useState(false);
+
+  const hasStates = statesForCountry.length > 0;
+  const subregionLabel = hasStates ? "States" : "Cities";
+  const subregionList = hasStates ? statesForCountry : citiesForCountry;
 
   const stats = useMemo(
     () => [
-      { label: "Homicide rate", value: `${country.homicideRatePer100k} / 100k` },
-      { label: "Firearm homicide", value: `${country.firearmHomicideRate} / 100k` },
-      { label: "Crime index", value: `${country.organizedCrimeIndex}` },
+      { label: "Homicide rate", value: `${getVal(country.homicideRatePer100k, activeYear)} / 100k` },
+      { label: "Firearm homicide", value: `${getVal(country.firearmHomicideRate, activeYear)} / 100k` },
+      { label: "Crime index", value: `${getVal(country.organizedCrimeIndex, activeYear)}` },
       { label: "Violence type", value: country.primaryViolenceType },
       { label: "Under 25", value: `${country.underAge25Percent.toFixed(0)}%` },
       { label: "Death risk (owner)", value: likelihoodToPercent(country.likelihoodDeathIfOwner) },
       { label: "Incarceration risk", value: likelihoodToPercent(country.likelihoodIncarcerationIfOwner) },
       { label: "Gang-related", value: `${country.gangRelatedGunDeathsPercent ?? 0}%` },
     ],
-    [country]
+    [country, activeYear]
   );
 
   const chartData = useMemo(
@@ -129,23 +143,27 @@ export default function CountryPanel({
           </div>
         </div>
 
-        {/* Cities section */}
-        {citiesForCountry.length > 0 && (
+        {/* States or Cities section */}
+        {subregionList.length > 0 && (
           <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] overflow-hidden">
             <button
-              onClick={() => setShowCities((v) => !v)}
+              onClick={() => setShowSubregions((v) => !v)}
               className="w-full flex items-center justify-between px-4 py-3 hover:bg-white/[0.03] transition-colors"
             >
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-accent/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" strokeLinecap="round" strokeLinejoin="round" />
+                  {hasStates ? (
+                    <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" strokeLinecap="round" strokeLinejoin="round" />
+                  ) : (
+                    <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" strokeLinecap="round" strokeLinejoin="round" />
+                  )}
                 </svg>
                 <span className="text-sm font-medium text-slate-200">
-                  Cities ({citiesForCountry.length})
+                  {subregionLabel} ({subregionList.length})
                 </span>
               </div>
               <svg
-                className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${showCities ? "rotate-180" : ""}`}
+                className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${showSubregions ? "rotate-180" : ""}`}
                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"
               >
                 <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
@@ -153,25 +171,28 @@ export default function CountryPanel({
             </button>
             <div
               className="overflow-hidden transition-all duration-300"
-              style={{ maxHeight: showCities ? `${citiesForCountry.length * 80 + 16}px` : "0px", opacity: showCities ? 1 : 0 }}
+              style={{ maxHeight: showSubregions ? `${subregionList.length * 80 + 16}px` : "0px", opacity: showSubregions ? 1 : 0 }}
             >
-              <div className="px-3 pb-3 space-y-2">
-                {citiesForCountry.map((city) => (
+              <div className="px-3 pb-3 space-y-2 max-h-[350px] overflow-y-auto">
+                {subregionList.map((item) => (
                   <button
-                    key={city.id}
-                    onClick={() => onViewCity?.(city.id)}
+                    key={item.id}
+                    onClick={() => hasStates ? onSelectState?.(item.id) : onViewCity?.(item.id)}
                     className="w-full text-left rounded-lg bg-white/[0.03] border border-white/[0.06] px-3 py-2.5 hover:bg-accent/5 hover:border-accent/20 transition-all duration-200 group"
                   >
                     <div className="flex items-center justify-between">
                       <div className="text-sm font-medium text-slate-200 group-hover:text-white transition-colors">
-                        {city.name}
+                        {item.name}
                       </div>
                       <svg className="w-3.5 h-3.5 text-slate-600 group-hover:text-accent/60 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                         <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
                     <div className="text-[11px] text-slate-500 mt-0.5">
-                      Homicide: {city.homicideRatePer100k}/100k · {city.primaryViolenceType}
+                      {hasStates
+                        ? `${item.lawStrictness} · ${item.homicideRatePer100k}/100k homicide`
+                        : `Homicide: ${item.homicideRatePer100k}/100k · ${item.primaryViolenceType}`
+                      }
                     </div>
                   </button>
                 ))}

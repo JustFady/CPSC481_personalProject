@@ -10,7 +10,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 32,
-    "context": "Alabama has some of the most permissive gun laws in the US and among the highest firearm homicide rates. Violence is concentrated in Birmingham, Mobile, and Montgomery, driven by gang activity and poverty."
+    "context": "Alabama has some of the most permissive gun laws in the US and among the highest firearm homicide rates. Violence is concentrated in Birmingham, Mobile, and Montgomery, driven by gang activity and poverty.",
+    "lat": 32.806671,
+    "lng": -86.79113,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-ALASKA",
@@ -23,7 +26,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 30,
-    "context": "Alaska has a high rate of domestic violence and alcohol-related homicides, particularly in remote indigenous communities with limited law enforcement access."
+    "context": "Alaska has a high rate of domestic violence and alcohol-related homicides, particularly in remote indigenous communities with limited law enforcement access.",
+    "lat": 61.370716,
+    "lng": -152.404419,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-ARIZONA",
@@ -36,7 +42,10 @@
     "primaryViolenceType": "Organized Crime",
     "lawStrictness": "Permissive",
     "underAge25Percent": 33,
-    "context": "Arizona sits on a major drug and human smuggling corridor from Mexico. Cartel-linked violence occurs near Tucson and border communities; Phoenix has gang hotspots."
+    "context": "Arizona sits on a major drug and human smuggling corridor from Mexico. Cartel-linked violence occurs near Tucson and border communities; Phoenix has gang hotspots.",
+    "lat": 33.729759,
+    "lng": -111.431221,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-ARKANSAS",
@@ -49,7 +58,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 33,
-    "context": "Arkansas has seen rising homicide rates, with Little Rock repeatedly recording some of the highest per-capita murder rates among US cities. Gang activity and illegal firearms are primary drivers."
+    "context": "Arkansas has seen rising homicide rates, with Little Rock repeatedly recording some of the highest per-capita murder rates among US cities. Gang activity and illegal firearms are primary drivers.",
+    "lat": 34.969704,
+    "lng": -92.373123,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-CALIFORNIA",
@@ -62,7 +74,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Strict",
     "underAge25Percent": 32,
-    "context": "California has among the strictest gun laws in the US and moderate homicide rates for its size. Violence is concentrated in Fresno, Stockton, Oakland, and parts of LA County."
+    "context": "California has among the strictest gun laws in the US and moderate homicide rates for its size. Violence is concentrated in Fresno, Stockton, Oakland, and parts of LA County.",
+    "lat": 36.116203,
+    "lng": -119.681564,
+    "lawSummary": "Among the strictest gun laws in the nation. Magazine capacity limits, assault weapons bans, and extensive licensing requirements are enforced."
   },
   {
     "id": "USA-COLORADO",
@@ -75,7 +90,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Moderate",
     "underAge25Percent": 31,
-    "context": "Colorado has moderate gun laws and mid-range homicide rates. Denver's Five Points and Aurora neighborhoods see concentrated violence; mass shootings in Aurora (2012) and Boulder (2021) gained national attention."
+    "context": "Colorado has moderate gun laws and mid-range homicide rates. Denver's Five Points and Aurora neighborhoods see concentrated violence; mass shootings in Aurora (2012) and Boulder (2021) gained national attention.",
+    "lat": 39.059811,
+    "lng": -105.311104,
+    "lawSummary": "This state maintains a balanced approach with some restrictions including background checks on all sales and a permit required for concealed carry."
   },
   {
     "id": "USA-CONNECTICUT",
@@ -88,7 +106,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Strict",
     "underAge25Percent": 29,
-    "context": "Connecticut tightened gun laws after the 2012 Sandy Hook shooting. Hartford and Bridgeport remain high-violence cities amid the state's stark wealth inequality."
+    "context": "Connecticut tightened gun laws after the 2012 Sandy Hook shooting. Hartford and Bridgeport remain high-violence cities amid the state's stark wealth inequality.",
+    "lat": 41.597782,
+    "lng": -72.755371,
+    "lawSummary": "This state enforces comprehensive firearm regulations including mandatory waiting periods, universal background checks, assault weapons bans, and may-issue concealed carry permits."
   },
   {
     "id": "USA-DELAWARE",
@@ -101,7 +122,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 31,
-    "context": "Delaware's small size belies a high concentration of violence in Wilmington, which has one of the nation's highest per-capita murder rates driven by gang and drug conflicts."
+    "context": "Delaware's small size belies a high concentration of violence in Wilmington, which has one of the nation's highest per-capita murder rates driven by gang and drug conflicts.",
+    "lat": 39.318523,
+    "lng": -75.507141,
+    "lawSummary": "This state maintains a balanced approach with some restrictions including background checks on all sales and a permit required for concealed carry."
   },
   {
     "id": "USA-DISTRICTOFCOLUMBIA",
@@ -114,7 +138,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Strict",
     "underAge25Percent": 35,
-    "context": "Despite strict gun laws, DC has high homicide rates due to illegal firearms flowing in from Virginia and Maryland. Wards 7 and 8 east of the Anacostia River bear disproportionate violence."
+    "context": "Despite strict gun laws, DC has high homicide rates due to illegal firearms flowing in from Virginia and Maryland. Wards 7 and 8 east of the Anacostia River bear disproportionate violence.",
+    "lat": 38.907192,
+    "lng": -77.036871,
+    "lawSummary": "Rigorous firearm legislation includes red flag laws, mandatory safety training, registration requirements, and strict concealed carry permitting."
   },
   {
     "id": "USA-FLORIDA",
@@ -127,7 +154,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 30,
-    "context": "Florida's Stand Your Ground law and permissive gun culture contribute to high shooting incidents. Miami, Jacksonville, and Orlando have concentrated gang violence; organized crime uses the state as a trafficking hub."
+    "context": "Florida's Stand Your Ground law and permissive gun culture contribute to high shooting incidents. Miami, Jacksonville, and Orlando have concentrated gang violence; organized crime uses the state as a trafficking hub.",
+    "lat": 27.766279,
+    "lng": -81.686783,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-GEORGIA",
@@ -140,7 +170,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 33,
-    "context": "Georgia's high homicide rate is driven by Atlanta's gang landscape — Bloods, Crips, and local sets compete over drug territory. Rural areas see domestic and interpersonal firearm violence."
+    "context": "Georgia's high homicide rate is driven by Atlanta's gang landscape — Bloods, Crips, and local sets compete over drug territory. Rural areas see domestic and interpersonal firearm violence.",
+    "lat": 33.040619,
+    "lng": -83.643074,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-HAWAII",
@@ -153,7 +186,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Strict",
     "underAge25Percent": 28,
-    "context": "Hawaii has some of the lowest gun violence rates in the US due to strict registration and permitting requirements, geographic isolation from gun markets, and strong community ties."
+    "context": "Hawaii has some of the lowest gun violence rates in the US due to strict registration and permitting requirements, geographic isolation from gun markets, and strong community ties.",
+    "lat": 21.094318,
+    "lng": -157.498337,
+    "lawSummary": "Rigorous firearm legislation includes red flag laws, mandatory safety training, registration requirements, and strict concealed carry permitting."
   },
   {
     "id": "USA-IDAHO",
@@ -166,7 +202,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 32,
-    "context": "Idaho has very permissive gun laws but relatively low homicide rates; rural demographics, low inequality, and strong community structures mitigate violence despite widespread firearm ownership."
+    "context": "Idaho has very permissive gun laws but relatively low homicide rates; rural demographics, low inequality, and strong community structures mitigate violence despite widespread firearm ownership.",
+    "lat": 44.240459,
+    "lng": -114.478828,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-ILLINOIS",
@@ -179,7 +218,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 32,
-    "context": "Illinois's homicide statistics are dominated by Chicago, which accounts for the majority of the state's gun deaths. Gang violence on the South and West Sides has proven resistant to multiple interventions."
+    "context": "Illinois's homicide statistics are dominated by Chicago, which accounts for the majority of the state's gun deaths. Gang violence on the South and West Sides has proven resistant to multiple interventions.",
+    "lat": 40.349457,
+    "lng": -88.986137,
+    "lawSummary": "This state maintains a balanced approach with some restrictions including background checks on all sales and a permit required for concealed carry."
   },
   {
     "id": "USA-INDIANA",
@@ -192,7 +234,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 32,
-    "context": "Indiana is a major source of illegal firearms trafficked to Chicago; Indianapolis has recorded record homicides in recent years tied to gang conflicts and retaliation cycles."
+    "context": "Indiana is a major source of illegal firearms trafficked to Chicago; Indianapolis has recorded record homicides in recent years tied to gang conflicts and retaliation cycles.",
+    "lat": 39.849426,
+    "lng": -86.258278,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-IOWA",
@@ -205,7 +250,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Moderate",
     "underAge25Percent": 31,
-    "context": "Iowa has relatively low violent crime; Des Moines and Davenport have seen upticks in gang-related shootings but overall rates remain low compared to national averages."
+    "context": "Iowa has relatively low violent crime; Des Moines and Davenport have seen upticks in gang-related shootings but overall rates remain low compared to national averages.",
+    "lat": 42.011539,
+    "lng": -93.210526,
+    "lawSummary": "Moderate gun regulations are in place, including waiting periods for handgun purchases and red flag laws allowing temporary firearm removal."
   },
   {
     "id": "USA-KANSAS",
@@ -218,7 +266,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 32,
-    "context": "Kansas City KS (separate from Kansas City MO) contributes significantly to the state's homicide numbers; rural areas see domestic and interpersonal violence."
+    "context": "Kansas City KS (separate from Kansas City MO) contributes significantly to the state's homicide numbers; rural areas see domestic and interpersonal violence.",
+    "lat": 38.5266,
+    "lng": -96.726486,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-KENTUCKY",
@@ -231,7 +282,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 31,
-    "context": "Kentucky has high rates of domestic violence and opioid-related crime; Louisville has seen rising homicides and was the site of the 2023 Old National Bank mass shooting."
+    "context": "Kentucky has high rates of domestic violence and opioid-related crime; Louisville has seen rising homicides and was the site of the 2023 Old National Bank mass shooting.",
+    "lat": 37.66814,
+    "lng": -84.670067,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-LOUISIANA",
@@ -244,7 +298,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 34,
-    "context": "Louisiana consistently has the highest or second-highest homicide rate in the US. New Orleans leads nationally; Baton Rouge and Shreveport also rank among the deadliest US cities."
+    "context": "Louisiana consistently has the highest or second-highest homicide rate in the US. New Orleans leads nationally; Baton Rouge and Shreveport also rank among the deadliest US cities.",
+    "lat": 31.169546,
+    "lng": -91.867805,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-MAINE",
@@ -257,7 +314,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 25,
-    "context": "Maine has very low violent crime despite permissive gun laws; the 2023 Lewiston mass shooting was a rare and shocking event in an otherwise peaceful state."
+    "context": "Maine has very low violent crime despite permissive gun laws; the 2023 Lewiston mass shooting was a rare and shocking event in an otherwise peaceful state.",
+    "lat": 44.693947,
+    "lng": -69.381927,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-MARYLAND",
@@ -270,7 +330,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Strict",
     "underAge25Percent": 33,
-    "context": "Maryland's high homicide rate is anchored by Baltimore, one of the deadliest US cities per capita. Strict state gun laws have limited impact due to easy access from neighboring states."
+    "context": "Maryland's high homicide rate is anchored by Baltimore, one of the deadliest US cities per capita. Strict state gun laws have limited impact due to easy access from neighboring states.",
+    "lat": 39.063946,
+    "lng": -76.802101,
+    "lawSummary": "This state enforces comprehensive firearm regulations including mandatory waiting periods, universal background checks, assault weapons bans, and may-issue concealed carry permits."
   },
   {
     "id": "USA-MASSACHUSETTS",
@@ -283,7 +346,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Strict",
     "underAge25Percent": 30,
-    "context": "Massachusetts has some of the strongest gun laws in the country and very low firearm homicide rates; Springfield and parts of Boston see occasional gang violence."
+    "context": "Massachusetts has some of the strongest gun laws in the country and very low firearm homicide rates; Springfield and parts of Boston see occasional gang violence.",
+    "lat": 42.230171,
+    "lng": -71.530106,
+    "lawSummary": "Rigorous firearm legislation includes red flag laws, mandatory safety training, registration requirements, and strict concealed carry permitting."
   },
   {
     "id": "USA-MICHIGAN",
@@ -296,7 +362,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 31,
-    "context": "Michigan's homicide rate is heavily influenced by Detroit, which has been dealing with gang violence and economic decline for decades. Flint and Saginaw also record high rates."
+    "context": "Michigan's homicide rate is heavily influenced by Detroit, which has been dealing with gang violence and economic decline for decades. Flint and Saginaw also record high rates.",
+    "lat": 43.326618,
+    "lng": -84.536095,
+    "lawSummary": "A mix of permissive and restrictive policies. Universal background checks are required but open carry remains legal with a permit."
   },
   {
     "id": "USA-MINNESOTA",
@@ -309,7 +378,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Moderate",
     "underAge25Percent": 30,
-    "context": "Minneapolis records higher homicides relative to its size; tensions over police violence (George Floyd's murder) highlighted systemic issues. Statewide rates remain moderate."
+    "context": "Minneapolis records higher homicides relative to its size; tensions over police violence (George Floyd's murder) highlighted systemic issues. Statewide rates remain moderate.",
+    "lat": 45.694454,
+    "lng": -93.900192,
+    "lawSummary": "This state maintains a balanced approach with some restrictions including background checks on all sales and a permit required for concealed carry."
   },
   {
     "id": "USA-MISSISSIPPI",
@@ -322,7 +394,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 35,
-    "context": "Mississippi has the highest or second-highest homicide rate among US states. Jackson, the capital, consistently ranks among the deadliest US cities; poverty, illegal guns, and limited social services drive the crisis."
+    "context": "Mississippi has the highest or second-highest homicide rate among US states. Jackson, the capital, consistently ranks among the deadliest US cities; poverty, illegal guns, and limited social services drive the crisis.",
+    "lat": 32.741646,
+    "lng": -89.678696,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-MISSOURI",
@@ -335,7 +410,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 33,
-    "context": "Missouri has among the highest homicide rates in the US. St. Louis and Kansas City MO are both in the top 10 most dangerous American cities; easy access to guns from permissive laws contributes to the crisis."
+    "context": "Missouri has among the highest homicide rates in the US. St. Louis and Kansas City MO are both in the top 10 most dangerous American cities; easy access to guns from permissive laws contributes to the crisis.",
+    "lat": 38.456085,
+    "lng": -92.288368,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-MONTANA",
@@ -348,7 +426,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 29,
-    "context": "Montana has permissive gun laws and widespread firearm ownership but low homicide rates; remoteness and low population density limit gang formation. Domestic violence is a concern."
+    "context": "Montana has permissive gun laws and widespread firearm ownership but low homicide rates; remoteness and low population density limit gang formation. Domestic violence is a concern.",
+    "lat": 46.921925,
+    "lng": -110.454353,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-NEBRASKA",
@@ -361,7 +442,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 32,
-    "context": "Nebraska's violence is concentrated in North Omaha, which has long battled gang activity and poverty. Rural areas remain very safe."
+    "context": "Nebraska's violence is concentrated in North Omaha, which has long battled gang activity and poverty. Rural areas remain very safe.",
+    "lat": 41.12537,
+    "lng": -98.268082,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-NEVADA",
@@ -374,7 +458,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 32,
-    "context": "Nevada's Las Vegas sees high rates of interpersonal violence fueled by alcohol, gambling debts, and transient populations. The 2017 Route 91 Harvest massacre remains the deadliest mass shooting in modern US history."
+    "context": "Nevada's Las Vegas sees high rates of interpersonal violence fueled by alcohol, gambling debts, and transient populations. The 2017 Route 91 Harvest massacre remains the deadliest mass shooting in modern US history.",
+    "lat": 38.313515,
+    "lng": -117.055374,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-NEWHAMPSHIRE",
@@ -387,7 +474,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 25,
-    "context": "New Hampshire is one of the safest US states despite permissive gun laws; low poverty, strong community cohesion, and low inequality underpin public safety."
+    "context": "New Hampshire is one of the safest US states despite permissive gun laws; low poverty, strong community cohesion, and low inequality underpin public safety.",
+    "lat": 43.452492,
+    "lng": -71.563896,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-NEWJERSEY",
@@ -400,7 +490,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Strict",
     "underAge25Percent": 30,
-    "context": "New Jersey has strict gun laws and moderate homicide rates; Camden and Trenton historically record high violence driven by drug trafficking; organized crime has long operated through Newark and the waterfront."
+    "context": "New Jersey has strict gun laws and moderate homicide rates; Camden and Trenton historically record high violence driven by drug trafficking; organized crime has long operated through Newark and the waterfront.",
+    "lat": 40.298904,
+    "lng": -74.521011,
+    "lawSummary": "Among the strictest gun laws in the nation. Magazine capacity limits, assault weapons bans, and extensive licensing requirements are enforced."
   },
   {
     "id": "USA-NEWMEXICO",
@@ -413,7 +506,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Moderate",
     "underAge25Percent": 33,
-    "context": "New Mexico has one of the highest homicide rates in the US; Albuquerque struggles with drug addiction, property crime, and gun violence linked to the I-40 drug corridor."
+    "context": "New Mexico has one of the highest homicide rates in the US; Albuquerque struggles with drug addiction, property crime, and gun violence linked to the I-40 drug corridor.",
+    "lat": 34.840515,
+    "lng": -106.248482,
+    "lawSummary": "This state maintains a balanced approach with some restrictions including background checks on all sales and a permit required for concealed carry."
   },
   {
     "id": "USA-NEWYORK",
@@ -426,7 +522,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Strict",
     "underAge25Percent": 30,
-    "context": "New York state includes NYC — which has dramatically reduced gun violence since the 1990s — and upstate cities like Buffalo and Rochester which see higher rates. Strict state gun laws face challenges from illegal trafficking."
+    "context": "New York state includes NYC — which has dramatically reduced gun violence since the 1990s — and upstate cities like Buffalo and Rochester which see higher rates. Strict state gun laws face challenges from illegal trafficking.",
+    "lat": 42.165726,
+    "lng": -74.948051,
+    "lawSummary": "Among the strictest gun laws in the nation. Magazine capacity limits, assault weapons bans, and extensive licensing requirements are enforced."
   },
   {
     "id": "USA-NORTHCAROLINA",
@@ -439,7 +538,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 32,
-    "context": "North Carolina has seen rising homicide rates; Fayetteville, Durham, and Charlotte record the highest violence. Gang activity and domestic violence are primary drivers."
+    "context": "North Carolina has seen rising homicide rates; Fayetteville, Durham, and Charlotte record the highest violence. Gang activity and domestic violence are primary drivers.",
+    "lat": 35.630066,
+    "lng": -79.806419,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-NORTHDAKOTA",
@@ -452,7 +554,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 30,
-    "context": "North Dakota has low violent crime overall; oil boom areas around Williston saw crime spikes correlating with transient worker populations; rates have since stabilized."
+    "context": "North Dakota has low violent crime overall; oil boom areas around Williston saw crime spikes correlating with transient worker populations; rates have since stabilized.",
+    "lat": 47.528912,
+    "lng": -99.784012,
+    "lawSummary": "Firearm regulations are among the least restrictive in the nation. No waiting periods, no universal background checks, and open carry is legal without a permit."
   },
   {
     "id": "USA-OHIO",
@@ -465,7 +570,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 31,
-    "context": "Ohio's Rust Belt cities — Cleveland, Cincinnati, Dayton, and Columbus — all record high homicide rates. The opioid epidemic has amplified poverty and drug-related violence across the state."
+    "context": "Ohio's Rust Belt cities — Cleveland, Cincinnati, Dayton, and Columbus — all record high homicide rates. The opioid epidemic has amplified poverty and drug-related violence across the state.",
+    "lat": 40.388783,
+    "lng": -82.764915,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-OKLAHOMA",
@@ -478,7 +586,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 33,
-    "context": "Oklahoma has high rates of domestic violence and interpersonal shootings; Tulsa and Oklahoma City have concentrated gang activity in specific neighborhoods."
+    "context": "Oklahoma has high rates of domestic violence and interpersonal shootings; Tulsa and Oklahoma City have concentrated gang activity in specific neighborhoods.",
+    "lat": 35.565342,
+    "lng": -96.928917,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-OREGON",
@@ -491,7 +602,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 30,
-    "context": "Oregon has moderate homicide rates; Portland saw a sharp spike during 2020-2022 following police reforms after BLM protests. Rural areas have high gun ownership but low violence."
+    "context": "Oregon has moderate homicide rates; Portland saw a sharp spike during 2020-2022 following police reforms after BLM protests. Rural areas have high gun ownership but low violence.",
+    "lat": 44.572021,
+    "lng": -122.070938,
+    "lawSummary": "A mix of permissive and restrictive policies. Universal background checks are required but open carry remains legal with a permit."
   },
   {
     "id": "USA-PENNSYLVANIA",
@@ -504,7 +618,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 31,
-    "context": "Pennsylvania's homicide rate is dominated by Philadelphia, one of the most violent major US cities. Pittsburgh also has concentrated gun violence in historically disinvested neighborhoods."
+    "context": "Pennsylvania's homicide rate is dominated by Philadelphia, one of the most violent major US cities. Pittsburgh also has concentrated gun violence in historically disinvested neighborhoods.",
+    "lat": 40.590752,
+    "lng": -77.209755,
+    "lawSummary": "Moderate gun regulations are in place, including waiting periods for handgun purchases and red flag laws allowing temporary firearm removal."
   },
   {
     "id": "USA-RHODEISLAND",
@@ -517,7 +634,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 29,
-    "context": "Rhode Island has moderate gun laws and relatively low homicide rates; Providence sees gang-related violence tied to drug distribution networks but at manageable levels."
+    "context": "Rhode Island has moderate gun laws and relatively low homicide rates; Providence sees gang-related violence tied to drug distribution networks but at manageable levels.",
+    "lat": 41.680893,
+    "lng": -71.51178,
+    "lawSummary": "Moderate gun regulations are in place, including waiting periods for handgun purchases and red flag laws allowing temporary firearm removal."
   },
   {
     "id": "USA-SOUTHCAROLINA",
@@ -530,7 +650,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 33,
-    "context": "South Carolina consistently has one of the highest firearm homicide rates in the US; both urban (North Charleston) and rural areas see high rates of domestic and interpersonal gun violence."
+    "context": "South Carolina consistently has one of the highest firearm homicide rates in the US; both urban (North Charleston) and rural areas see high rates of domestic and interpersonal gun violence.",
+    "lat": 33.856892,
+    "lng": -80.945007,
+    "lawSummary": "Firearm regulations are among the least restrictive in the nation. No waiting periods, no universal background checks, and open carry is legal without a permit."
   },
   {
     "id": "USA-SOUTHDAKOTA",
@@ -543,7 +666,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 32,
-    "context": "South Dakota's violence is disproportionately concentrated among Native American communities near reservations; Sioux Falls has seen rising gang activity tied to methamphetamine trafficking."
+    "context": "South Dakota's violence is disproportionately concentrated among Native American communities near reservations; Sioux Falls has seen rising gang activity tied to methamphetamine trafficking.",
+    "lat": 44.299782,
+    "lng": -99.438828,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-TENNESSEE",
@@ -556,7 +682,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Permissive",
     "underAge25Percent": 33,
-    "context": "Tennessee has very permissive gun laws and high homicide rates. Memphis is one of the deadliest US cities; Nashville and Chattanooga also see significant gang violence."
+    "context": "Tennessee has very permissive gun laws and high homicide rates. Memphis is one of the deadliest US cities; Nashville and Chattanooga also see significant gang violence.",
+    "lat": 35.747845,
+    "lng": -86.692345,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-TEXAS",
@@ -569,7 +698,10 @@
     "primaryViolenceType": "Organized Crime",
     "lawStrictness": "Permissive",
     "underAge25Percent": 35,
-    "context": "Texas passed permitless carry in 2021. Houston ranks among the deadliest large US cities. The southern border with Mexico is a major corridor for cartel-linked drug and weapons trafficking."
+    "context": "Texas passed permitless carry in 2021. Houston ranks among the deadliest large US cities. The southern border with Mexico is a major corridor for cartel-linked drug and weapons trafficking.",
+    "lat": 31.054487,
+    "lng": -97.563461,
+    "lawSummary": "Firearm regulations are among the least restrictive in the nation. No waiting periods, no universal background checks, and open carry is legal without a permit."
   },
   {
     "id": "USA-UTAH",
@@ -582,7 +714,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 33,
-    "context": "Utah has low homicide rates despite permissive gun laws; strong religious and community ties, low poverty rates, and high education levels contribute to low violence."
+    "context": "Utah has low homicide rates despite permissive gun laws; strong religious and community ties, low poverty rates, and high education levels contribute to low violence.",
+    "lat": 40.150032,
+    "lng": -111.862434,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-VERMONT",
@@ -595,7 +730,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 25,
-    "context": "Vermont is one of the safest US states with very low homicide rates; its rural character, high social capital, and low inequality keep violence minimal despite permissive gun laws."
+    "context": "Vermont is one of the safest US states with very low homicide rates; its rural character, high social capital, and low inequality keep violence minimal despite permissive gun laws.",
+    "lat": 44.045876,
+    "lng": -72.710686,
+    "lawSummary": "This state has minimal restrictions on firearm ownership, with no permit required for purchase or carry. Constitutional carry is in effect."
   },
   {
     "id": "USA-VIRGINIA",
@@ -608,7 +746,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 31,
-    "context": "Virginia has tightened gun laws since 2020 under Democratic governance. Northern Virginia (suburban DC) is relatively safe; Richmond and Norfolk record higher violence. Virginia is a top source of firearms trafficked to northeastern states."
+    "context": "Virginia has tightened gun laws since 2020 under Democratic governance. Northern Virginia (suburban DC) is relatively safe; Richmond and Norfolk record higher violence. Virginia is a top source of firearms trafficked to northeastern states.",
+    "lat": 37.769337,
+    "lng": -78.169968,
+    "lawSummary": "Moderate gun regulations are in place, including waiting periods for handgun purchases and red flag laws allowing temporary firearm removal."
   },
   {
     "id": "USA-WASHINGTON",
@@ -621,7 +762,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 30,
-    "context": "Washington state has moderate gun laws; Seattle has seen increases in gun violence since 2020, with Tacoma and Spokane also recording elevated rates. Pacific drug corridors affect violence patterns."
+    "context": "Washington state has moderate gun laws; Seattle has seen increases in gun violence since 2020, with Tacoma and Spokane also recording elevated rates. Pacific drug corridors affect violence patterns.",
+    "lat": 47.400902,
+    "lng": -121.490494,
+    "lawSummary": "This state maintains a balanced approach with some restrictions including background checks on all sales and a permit required for concealed carry."
   },
   {
     "id": "USA-WESTVIRGINIA",
@@ -634,7 +778,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 29,
-    "context": "West Virginia has the highest opioid death rate in the US; drug-related violence and domestic firearm homicides are elevated. Deep poverty and limited access to services compound the problem."
+    "context": "West Virginia has the highest opioid death rate in the US; drug-related violence and domestic firearm homicides are elevated. Deep poverty and limited access to services compound the problem.",
+    "lat": 38.491226,
+    "lng": -80.954453,
+    "lawSummary": "Firearm regulations are among the least restrictive in the nation. No waiting periods, no universal background checks, and open carry is legal without a permit."
   },
   {
     "id": "USA-WISCONSIN",
@@ -647,7 +794,10 @@
     "primaryViolenceType": "Gang-related",
     "lawStrictness": "Moderate",
     "underAge25Percent": 30,
-    "context": "Wisconsin's homicide rate is driven by Milwaukee, which has one of the nation's highest per-capita murder rates. Gang activity tied to drug distribution on Milwaukee's north side is the primary driver."
+    "context": "Wisconsin's homicide rate is driven by Milwaukee, which has one of the nation's highest per-capita murder rates. Gang activity tied to drug distribution on Milwaukee's north side is the primary driver.",
+    "lat": 44.268543,
+    "lng": -89.616508,
+    "lawSummary": "Moderate gun regulations are in place, including waiting periods for handgun purchases and red flag laws allowing temporary firearm removal."
   },
   {
     "id": "USA-WYOMING",
@@ -660,7 +810,10 @@
     "primaryViolenceType": "Interpersonal / Multiple",
     "lawStrictness": "Permissive",
     "underAge25Percent": 29,
-    "context": "Wyoming has very low homicide rates despite extremely permissive gun laws and high gun ownership per capita; sparse population and strong community norms limit violence."
+    "context": "Wyoming has very low homicide rates despite extremely permissive gun laws and high gun ownership per capita; sparse population and strong community norms limit violence.",
+    "lat": 42.755966,
+    "lng": -107.30249,
+    "lawSummary": "Gun laws favor broad access. No registration, no assault weapons ban, and concealed carry permits are shall-issue with minimal requirements."
   },
   {
     "id": "USA-PUERTORICO",
@@ -673,6 +826,9 @@
     "primaryViolenceType": "Organized Crime",
     "lawStrictness": "Moderate",
     "underAge25Percent": 35,
-    "context": "Puerto Rico has a high homicide rate driven by drug trafficking organizations competing for control of distribution networks; San Juan's housing projects have been major hotspots."
+    "context": "Puerto Rico has a high homicide rate driven by drug trafficking organizations competing for control of distribution networks; San Juan's housing projects have been major hotspots.",
+    "lat": 18.220833,
+    "lng": -66.590149,
+    "lawSummary": "Moderate gun regulations are in place, including waiting periods for handgun purchases and red flag laws allowing temporary firearm removal."
   }
 ]
